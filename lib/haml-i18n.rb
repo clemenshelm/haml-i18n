@@ -34,7 +34,11 @@ module HamlI18n
       begin
         I18n.translate(key, raise: true)
       rescue I18n::MissingTranslationData
-        I18n.translate(simple_key)
+        begin
+          I18n.translate(simple_key, raise: true)
+        rescue I18n::MissingTranslationData
+          text
+        end
       end
     end
   end

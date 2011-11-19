@@ -19,6 +19,8 @@ This will try to
   * retrieve `[view_folder].[template_name].user_name`
   * retrieve `user_name` if the template-scoped translation doesn’t exist.
   
+If none of these keys exist, the haml template just acts as usual: it renders 'User name'.
+  
 ## Contributing to haml-i18n
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet

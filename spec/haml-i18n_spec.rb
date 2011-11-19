@@ -23,6 +23,13 @@ describe HamlI18n do
     template.render.should =~ /Kevin/
   end
   
+  context "when there is no translation" do
+    it "keeps the original text" do
+      template = Haml::Engine.new 'User name'
+      template.render.should =~ /User name/
+    end
+  end
+  
   context "within a tag" do
     it "looks up 'key' as 'key'" do
       I18n.backend.store_translations :en, key: 'Cheers'
