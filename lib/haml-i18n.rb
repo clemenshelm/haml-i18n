@@ -28,7 +28,7 @@ module HamlI18n
     def translate(text)
       simple_key = text.parameterize.underscore
       
-      filename_components = options[:filename].match(/\/views\/([^\/]+)\/([^\/]+).html.haml/)
+      filename_components = @options[:filename].match(/\/views\/([^\/]+)\/([^\/]+).html.haml/)
       key = filename_components ? "#{filename_components[1]}.#{filename_components[2]}.#{simple_key}" : simple_key
       
       begin
@@ -45,7 +45,7 @@ module HamlI18n
 end
 
 module Haml
-  class Engine
+  class Parser
     include HamlI18n::Internationalizer
   end
 end
